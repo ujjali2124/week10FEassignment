@@ -1,0 +1,117 @@
+<head>
+  <title>Week 10</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link
+    rel="stylesheet"
+    href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+  />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Feel Free</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="index.html"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+              >Home</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h3>Feel Free To Write Your Review</h3>
+    <form id="myForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="Enter your name"
+        />
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter your email"
+        />
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input class="form-control input-lg" id="description" type="text" />
+      </div>
+      <br />
+      <button type="submit" value="Submit" class="btn btn-primary">
+        Submit
+      </button>
+    </form>
+  </div>
+
+  <div class="container mt-4">
+    <table class="table" id="dataTable">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+  <!-- <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"> -->
+    <script>
+      document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+
+      // Get the input values
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var description = document.getElementById("description").value;
+      
+      
+      // Create a new row in the table
+      var table = document.getElementById("dataTable");
+      var newRow = table.insertRow();
+
+      // Insert cells with the input values
+      var nameCell = newRow.insertCell();
+      nameCell.innerHTML = name;
+
+      var emailCell = newRow.insertCell();
+      emailCell.innerHTML = email;
+
+      var descriptionCell = newRow.insertCell();
+      descriptionCell.innerHTML = description;
+
+      document.getElementById("myForm").reset();
+    });
+  </script>
+</body>
+</html>
